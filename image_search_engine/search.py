@@ -27,7 +27,7 @@ args = vars(ap.parse_args())
 
 # initialize the keypoint detector, local invariant descriptor, descriptor pipeline,
 # distance metric, and inverted document frequency array
-detector = FeatureDetector_create("SURF")
+detector = FeatureDetector_create("BRISK")
 descriptor = DescriptorExtractor_create("RootSIFT")
 dad = DetectAndDescribe(detector, descriptor)
 distanceMetric = chi2_distance
