@@ -78,6 +78,29 @@ for (i, (score, resultID, resultsIdx)) in enumerate(sr.results):
     # montage.addResult(result, text = "#{}".format(i + 1),
         # highlight = resultID in queryRelevant)
 
+import csv
+  
+# field names
+fields = ['Path', 'Confidence score']
+  
+# data rows of csv file
+rows = [[path,score] for score,path,_ in sr.results]
+  
+# name of csv file
+filename = "searchresult/con_cac.csv"
+  
+# writing to csv file
+with open(filename, 'w') as csvfile:
+    # creating a csv writer object
+    csvwriter = csv.writer(csvfile)
+      
+    # writing the fields
+    csvwriter.writerow(fields)
+      
+    # writing the data rows
+    csvwriter.writerows(rows)
+
+
 # show the output image of results
 # cv2.imshow("Results", imutils.resize(montage.montage, height = 700))
 cv2.waitKey(0)
